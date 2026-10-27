@@ -1,0 +1,22 @@
+{
+  "name": "epoch-ui",
+  "private": true,
+  "version": "0.1.0",
+  "description": "The window of Epoch: a Monaco editor and the IDE around it, bundled for offline use.",
+  "type": "module",
+  "scripts": {
+    "build": "node build.mjs",
+    "watch": "node build.mjs --watch"
+  },
+  "dependencies": {
+    "@tauri-apps/api": "2.12.4",
+    "dompurify": "3.4.17",
+    "monaco-editor": "0.57.0"
+  },
+  "overrides": {
+    "dompurify": "3.4.17"
+  },
+  "devDependencies": {
+    "esbuild": "0.28.2"
+  }
+}

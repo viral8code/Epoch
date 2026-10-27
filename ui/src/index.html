@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="ja" data-theme="dark">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Epoch</title>
+  <link rel="stylesheet" href="app.css">
+  <script type="module" src="app.js"></script>
+</head>
+<body>
+  <div id="app">
+    <header id="titlebar">
+      <div id="app-logo"></div>
+      <nav id="menubar" aria-label="メニュー"></nav>
+      <div id="feature-search"></div>
+      <div id="solution-name"></div>
+    </header>
+    <div id="toolbar" role="toolbar"></div>
+    <div id="workbench">
+      <div id="center">
+        <div id="editor-area"></div>
+        <div class="sash horizontal" id="bottom-sash"></div>
+        <div id="bottom-dock">
+          <section class="toolgroup" id="tg-bottom-left"></section>
+          <div class="sash vertical" id="bottom-split-sash"></div>
+          <section class="toolgroup" id="tg-bottom-right"></section>
+        </div>
+      </div>
+      <div class="sash vertical" id="right-sash"></div>
+      <div id="right-dock">
+        <section class="toolgroup" id="tg-right"></section>
+      </div>
+    </div>
+    <footer id="statusbar"><div id="status-left"></div><div id="status-right"></div></footer>
+  </div>
+  <div id="overlay-root"></div>
+</body>
+</html>

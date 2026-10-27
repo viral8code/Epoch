@@ -1,0 +1,42 @@
+[package]
+name = "epoch"
+version = "0.1.0"
+edition = "2024"
+license = "MIT"
+description = "Epoch: an integrated development environment for the REWIND programming language"
+rust-version = "1.95"
+default-run = "epoch"
+
+[lib]
+name = "epoch_lib"
+path = "src/lib.rs"
+
+[[bin]]
+name = "epoch"
+path = "src/main.rs"
+
+[build-dependencies]
+tauri-build = { version = "2", features = [] }
+
+[dependencies]
+tauri = { version = "2", features = [] }
+tokio = { version = "1", features = ["sync", "time", "rt", "macros"] }
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+regex = "1"
+ignore = "0.4"
+rfd = { version = "0.17", default-features = false, features = ["common-controls-v6"] }
+dirs = "6"
+trash = "5"
+url = "2"
+which = "8"
+
+[profile.release]
+opt-level = 3
+lto = true
+codegen-units = 1
+panic = "abort"
+strip = "symbols"
+
+[profile.dev.package."*"]
+opt-level = 2
