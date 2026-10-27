@@ -518,8 +518,9 @@ export function initDebug() {
   // Editors created before this module started are wired up too.
   const attach = (editor) => {
     editor.onMouseDown((e) => {
-      const type = e.target.type;
-      if (type !== monaco.editor.MouseTargetType.GUTTER_GLYPH_MARGIN && type !== monaco.editor.MouseTargetType.GUTTER_LINE_DECORATIONS) return;
+      // Only the glyph margin (the leftmost column, as in Visual Studio). The line-decorations
+      // area holds the folding controls, so a click there must not toggle a breakpoint.
+      if (e.target.type !== monaco.editor.MouseTargetType.GUTTER_GLYPH_MARGIN || !e.event.leftButton) return;
       const doc = allDocs().find((d) => d.model === editor.getModel());
       if (doc?.path && e.target.position) toggleBreakpoint(doc.path, e.target.position.lineNumber);
     });
